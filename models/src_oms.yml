@@ -1,0 +1,63 @@
+sources:
+  - name: landing
+    description: The primary source system for order management system (OMS) data analytics.
+    database: DBTDEMO
+    schema: L1_LANDING
+    # freshness:
+    # warn_after: {count: 1, period: day}
+    # error_after: {count: 3, period: day}
+    # loaded_at_field: Updated_at
+
+    tables:
+    - name: cust
+      description: The customers table from order management system (OMS).
+      identifier: customers
+
+    - name: ordr
+      description: The orders table from order management system (OMS).
+      identifier: orders
+
+    - name: ordritms
+      description: The ordritms table from order management system (OMS).
+      identifier: orderitems
+
+    - name: emp
+      description: The employees table from order management system (OMS).
+      identifier: employees
+      columns:
+        - name: address
+          description: Full Address of employees for Transport Arrangements.
+          tests:
+          - not_null
+          - string_not_empty
+    
+    - name: prd
+      description: The products table from order management system (OMS).
+      identifier: products
+    
+    - name: sup
+      description: The suppliers table from order management system (OMS).
+      identifier: suppliers
+
+    - name: str
+      description: The stores table from order management system (OMS).
+      identifier: stores
+
+
+  - name: training
+    description: The training dataset for order management system (OMS) data analytics.
+    database: DBTDEMO
+    schema: TRAINING
+  
+    tables:
+    - name: sales_us
+      description: The US sales table from order management system (OMS).
+      identifier: sales_us
+
+    - name:  sales_ca
+      description: The CA sales table from order management system (OMS).
+      identifier: sales_ca
+    
+    - name: sales_uk
+      description: The UK sales table from order management system (OMS).
+      identifier: sales_uk

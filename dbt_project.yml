@@ -32,6 +32,18 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   +transient : false
   dbt_project_demo:
+    profit_us:
+      schema: TRAINING
+      materialized: table
+    profit_uk:
+      schema: TRAINING
+      materialized: table
+    profit_ca:
+      schema: TRAINING
+      materialized: table
+    sales_ca_unique:
+      schema: TRAINING
+      materialized: table
     customers_stg:
       schema: L2_PROCESSING
     orders_stg:

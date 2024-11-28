@@ -1,3 +1,4 @@
+{{config(materialized='table')}}
 SELECT
     OS.CustomerID,
     C.CustomerName,

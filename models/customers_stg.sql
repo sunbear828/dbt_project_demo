@@ -1,3 +1,4 @@
+{{config(materialized='ephemeral')}}
 SELECT
 CustomerID,
 FIrstName,
@@ -10,4 +11,5 @@ State,
 ZipCode,
 Updated_at,
 CONCAT(FirstName, ' ', LastName) AS CustomerName
-FROM L1_LANDING.CUSTOMERS c
+FROM 
+{{source('landing','cust')}}
